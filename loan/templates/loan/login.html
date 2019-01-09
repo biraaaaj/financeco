@@ -5,18 +5,20 @@
 {% endblock %}
 
 {% block body %}
-  <div class ="outer">
-    <h1>Login</h1>
-    {% if message %}
-    <div>
-      {{message}}
-    </div>
-    {% endif %}
+  <div class="up">
+  </div>
+  {% if message %}
+  <div class="down">
+    <h3>{{message}} !!!</h3>
+  </div>
+  {% endif %}
+  <br>
+  <div class="down">
     <form action="{% url 'login' %}" method ="post">
       {% csrf_token %}
-      <input type="text" name="username" />
-      <input type="password" name="password" />
-      <input type="submit" value="Login" />
+      <h3>Username :</h3>   <input type="text" name="username" placeholder="Enter your username here"/> <br>
+      <h3>Password :</h3>   <input type="password" name="password" placeholder="Enter your password here" /> <br> <br>
+      <input type="submit" value="Login" class = "button" />
     </form>
   </div>
 {% endblock %}
