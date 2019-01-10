@@ -3,7 +3,19 @@ import datetime
 from django.contrib.auth.models import User
 # Create your models here.
 
-class Loan_taken(models.Model):
+# class LoanTakenQuerySet(model.QuerySet):
+#     def getLoanTaken(client_id):
+#         return self.filter(
+#             models.Q(published=True) & models.Q(showcase=True)
+#         )
+#
+# class LoanPaidQuerySet(model.QuerySet):
+#     def getLoanPaid(client_id):
+#         return self.filter(
+#             models.Q(published=True) & models.Q(showcase=True)
+#         )
+
+class LoanTaken(models.Model):
     client = models.ForeignKey(User, on_delete=models.CASCADE)
     loan_amt = models.IntegerField()
     interest_rate = models.IntegerField()
@@ -13,7 +25,7 @@ class Loan_taken(models.Model):
         return f"{self.client.first_name} {self.client.last_name} {self.loan_amt}"
 
 
-class Loan_paid(models.Model):
+class LoanPaid(models.Model):
     client = models.ForeignKey(User, on_delete=models.CASCADE)
     payment = models.IntegerField()
     payment_date = models.DateField(default=datetime.date.today)
